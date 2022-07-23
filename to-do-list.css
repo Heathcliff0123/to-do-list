@@ -8,7 +8,7 @@ html,body {
     width: 360px;
 }
 
-#inputField {
+#nameField, #dateField,#changeField {
     width: 300px;
     height: 46px;
     border: 1px solid black;
@@ -17,8 +17,33 @@ html,body {
     vertical-align: middle;
 }
 
+#dateLabel, #nameLabel, #changeLabel{
+    width: 300px;
+    height: 46px;
+   
+    outline: none;
+    font-size: 25px;
+    vertical-align: middle;
+}
+
 #addToDo {
-    width: 50px;
+    width: 75px;
+    height: 50px;
+    border: 1px solid black;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+#removeToDo{
+    width: 125px;
+    height: 50px;
+    border: 1px solid black;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+#editToDo{
+    width: 97px;
     height: 50px;
     border: 1px solid black;
     font-size: 30px;
@@ -33,4 +58,9 @@ html,body {
     margin: 0;
     cursor: pointer;
     font-size: 20px;
+}
+
+p.tag{
+    padding: 0;
+    margin: 0;
 }

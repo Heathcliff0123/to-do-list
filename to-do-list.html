@@ -11,7 +11,16 @@
 <body>
     <h1> To Do List</h1>
     <div class="container">
-        <input id="inputField" type="text" placeholder=""><Button id="addToDo">+</Button>  
+        <div class="input">
+            <label id="nameLabel" for="nameField"><p class="tag">Name:</p></label>
+            <input id="nameField" type="text" placeholder="">
+            <label id="dateLabel" for="dateField"><p class="tag">Date:</p></label>
+            <input id="dateField" type="text" placeholder="">
+            <Button id="addToDo">Add</Button> <Button id="removeToDo">Remove</Button> <Button id="editToDo">Edit</Button>
+            <label id="changeLabel" for="dateField"><p class="tag">element to remove/edit:</p></label>
+            <input id="changeField" type="numbers" placeholder="">
+        </div>
+        
         <div class="toDos" id="toDoContainer">
 
         </div> 
