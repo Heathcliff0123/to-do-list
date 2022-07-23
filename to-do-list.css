@@ -1,7 +1,19 @@
 html,body {
-    width: 50%;
+    /* width: 50%; */
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url(images/background2.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+       background-repeat: no-repeat;
+       background-size:contain;
+       background-position-x: center;
+       background-color:rgb(6,0,24);
+       width: 100%;
+       height: 600px;
+    display: flex;
+    
 }
 
 .container{
@@ -32,6 +44,7 @@ html,body {
     border: 1px solid black;
     font-size: 30px;
     vertical-align: middle;
+    background-color: greenyellow;
 }
 
 #removeToDo{
@@ -40,6 +53,7 @@ html,body {
     border: 1px solid black;
     font-size: 30px;
     vertical-align: middle;
+    background-color: red;
 }
 
 #editToDo{
@@ -48,16 +62,19 @@ html,body {
     border: 1px solid black;
     font-size: 30px;
     vertical-align: middle;
+    background-color: orange;
 }
 
 .toDos {
     margin-top: 25px;
+    background-color: rgb(182,113,243);
+    /* color: rgb(182,113,243); */
 }
 
-.paragraph-styling {
-    margin: 0;
-    cursor: pointer;
-    font-size: 20px;
+.input{
+    margin-top: 25px;
+    background-color: rgb(29,52,127);
+   
 }
 
 p.tag{
