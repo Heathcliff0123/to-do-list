@@ -1,6 +1,7 @@
 let addToDoButton = document.getElementById('addToDo');
 let editToDoButton = document.getElementById('editToDo');
 let removeToDoButton = document.getElementById('removeToDo');
+let sortToDoButton = document.getElementById('sortToDo'); 
 let toDoContainer = document.getElementById('toDoContainer');
 let nameField = document.getElementById('nameField');
 let dateField = document.getElementById('dateField');
@@ -28,6 +29,18 @@ function repopulateList(){
         if (toDoArr[f].line) {
             paragraph.style.textDecoration = "line-through";
         }
+        paragraph.addEventListener('click', function(){
+            index = paragraph.textContent.indexOf(".");
+            let number = paragraph.textContent.substring(0, index);
+            index = parseInt(number) - 1;
+            if(toDoArr[index].line){
+                paragraph.style.textDecoration = "none";
+                toDoArr[index].line = false; 
+            } else{
+                paragraph.style.textDecoration = "line-through";
+                toDoArr[index].line = true;
+            }
+       })
     }
     
 }
@@ -96,4 +109,19 @@ removeToDoButton.addEventListener('click',function(){
         repopulateList();
     }
 })
+
+sortToDoButton.addEventListener("click", function() {
+
+    for (var f = 0; f < toDoArr.length - 1; f++) {
+        for(var j = f + 1; j < toDoArr.length; j++){
+            if(toDoArr[f].name > toDoArr[j].name){
+                let temp = toDoArr[f];
+                toDoArr[f] = toDoArr[j];
+                toDoArr[j] = temp;
+            }
+        }
+    }
+    deleteList();
+    repopulateList();
+});
 
