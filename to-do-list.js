@@ -6,6 +6,7 @@ let toDoContainer = document.getElementById('toDoContainer');
 let nameField = document.getElementById('nameField');
 let dateField = document.getElementById('dateField');
 let changeField = document.getElementById('changeField');
+let body = document.getElementById("to-do-list")
 let changed = false;
 let toDoArr = [];
 let index = 0;
@@ -21,10 +22,13 @@ function deleteList() {
 
 function repopulateList(){
     var paragraph = document.createElement('p')
+    localStorage.clear();
     for (var f=0; f< toDoArr.length; f++) {
         paragraph = document.createElement('p')
         paragraph.innerText = toDoArr[f].number + ".\t" + toDoArr[f].name + "\t" + toDoArr[f].date;
         toDoContainer.appendChild(paragraph);
+        
+        localStorage.setItem(toDoArr[f].number,JSON.stringify(toDoArr[f]));
 
         if (toDoArr[f].line) {
             paragraph.style.textDecoration = "line-through";
@@ -45,6 +49,14 @@ function repopulateList(){
     
 }
 
+window.onload = function(){
+    for(var f=1;f<=localStorage.length;f++){
+        toDoArr.push(JSON.parse(localStorage.getItem(f)));
+    }
+    repopulateList(); 
+}
+
+
 addToDoButton.addEventListener('click', function(){
     let toDoItem = {'number' : toDoArr.length + 1, 'name' : nameField.value, 'date': dateField.value, 'line': false};
     toDoArr.push(toDoItem);
@@ -53,6 +65,7 @@ addToDoButton.addEventListener('click', function(){
     toDoContainer.appendChild(paragraph);
     nameField.value = "";
     dateField.value = "";
+    localStorage.setItem(toDoItem.number,JSON.stringify(toDoItem));
    paragraph.addEventListener('click', function(){
         index = paragraph.textContent.indexOf(".");
         let number = paragraph.textContent.substring(0, index);
@@ -101,9 +114,7 @@ removeToDoButton.addEventListener('click',function(){
         index = changeField.value -1;
         toDoArr.splice(index, 1);
 
-        for (var f=0;f<toDoArr.length;f++){
-            toDoArr[f].number = f + 1;
-        }
+        resetIndex();
         changeField.value = "";
         deleteList();
         repopulateList();
@@ -121,7 +132,13 @@ sortToDoButton.addEventListener("click", function() {
             }
         }
     }
+    resetIndex();
     deleteList();
     repopulateList();
 });
 
+function resetIndex(){
+    for (var f=0;f<toDoArr.length;f++){
+        toDoArr[f].number = f + 1;
+    }
+}
