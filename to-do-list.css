@@ -98,3 +98,13 @@ p.tag{
 #title {
     align: center center;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col{
+    min-width: 50vw;
+    margin: 1rem;
+}

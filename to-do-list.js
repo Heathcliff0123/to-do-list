@@ -23,13 +23,22 @@ function deleteList() {
 function repopulateList(){
     var paragraph = document.createElement('p')
     localStorage.clear();
+    
     for (var f=0; f< toDoArr.length; f++) {
         paragraph = document.createElement('p')
-        paragraph.innerText = toDoArr[f].number + ".\t" + toDoArr[f].name + "\t" + toDoArr[f].date;
+        paragraph.innerText = toDoArr[f].number + ".\t" + toDoArr[f].name + ":\t" + toDoArr[f].date;
         toDoContainer.appendChild(paragraph);
         
         localStorage.setItem(toDoArr[f].number,JSON.stringify(toDoArr[f]));
-
+        console.log(toDoArr[f].date);
+        if (new Date(toDoArr[f].date).getFullYear() <=  new Date().getFullYear()){
+            if(new Date(toDoArr[f].date).getMonth() <=  new Date().getMonth()){
+                if (new Date(toDoArr[f].date).getDay() <  new Date().getDay()){
+                    console.log("help me");
+                    paragraph.style.color = 'red';
+                } 
+            }
+        }
         if (toDoArr[f].line) {
             paragraph.style.textDecoration = "line-through";
         }
@@ -61,11 +70,19 @@ addToDoButton.addEventListener('click', function(){
     let toDoItem = {'number' : toDoArr.length + 1, 'name' : nameField.value, 'date': dateField.value, 'line': false};
     toDoArr.push(toDoItem);
     var paragraph = document.createElement('p')
-    paragraph.innerText = toDoItem.number + ".\t" + toDoItem.name + "\t" + toDoItem.date;
+    paragraph.innerText = toDoItem.number + ".\t" + toDoItem.name + ":\t" + toDoItem.date;
     toDoContainer.appendChild(paragraph);
     nameField.value = "";
     dateField.value = "";
     localStorage.setItem(toDoItem.number,JSON.stringify(toDoItem));
+    if (new Date(toDoItem.date).getFullYear() <=  new Date().getFullYear()){
+        if(new Date(toDoItem.date).getMonth() <=  new Date().getMonth()){
+            if (new Date(toDoItem.date).getDay() <  new Date().getDay()){
+                console.log("help me");
+                paragraph.style.color = 'red';
+            } 
+        }
+    }
    paragraph.addEventListener('click', function(){
         index = paragraph.textContent.indexOf(".");
         let number = paragraph.textContent.substring(0, index);
