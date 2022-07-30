@@ -3,7 +3,7 @@ html,body {
  
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(images/background2.jpg);
+    background-image: url(images/background.jpg);
         background-size: cover;
         background-attachment: fixed;
         background-position: center center;
@@ -96,7 +96,7 @@ p.tag{
 }
 
 #title {
-    align: center center;
+    text-align: center;
 }
 
 .row {
@@ -104,7 +104,7 @@ p.tag{
     flex-direction: row;
 }
 
-.col{
+.col {
     min-width: 50vw;
     margin: 1rem;
 }

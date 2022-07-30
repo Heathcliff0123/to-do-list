@@ -25,12 +25,12 @@ function repopulateList(){
     localStorage.clear();
     
     for (var f=0; f< toDoArr.length; f++) {
-        paragraph = document.createElement('p')
+        var paragraph = document.createElement('p')
         paragraph.innerText = toDoArr[f].number + ".\t" + toDoArr[f].name + ":\t" + toDoArr[f].date;
-        toDoContainer.appendChild(paragraph);
         
+        toDoContainer.appendChild(paragraph);
         localStorage.setItem(toDoArr[f].number,JSON.stringify(toDoArr[f]));
-        console.log(toDoArr[f].date);
+        
         if (new Date(toDoArr[f].date).getFullYear() <=  new Date().getFullYear()){
             if(new Date(toDoArr[f].date).getMonth() <=  new Date().getMonth()){
                 if (new Date(toDoArr[f].date).getDay() <  new Date().getDay()){
@@ -42,6 +42,7 @@ function repopulateList(){
         if (toDoArr[f].line) {
             paragraph.style.textDecoration = "line-through";
         }
+        
         paragraph.addEventListener('click', function(){
             index = paragraph.textContent.indexOf(".");
             let number = paragraph.textContent.substring(0, index);
