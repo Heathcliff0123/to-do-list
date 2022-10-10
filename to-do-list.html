@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="to-do-list.js" defer></script>
-    <link rel="stylesheet" href="to-do-list.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="javascript/to-do-list.js" defer></script>
+    <link rel="stylesheet" href="CSS/to-do-list.css" />
     <title>To Do List</title>
-</head>
-<body id = "to-do-list">
-    
+  </head>
+  <body id="to-do-list">
     <div class="container-fluid">
-        <div>
-            <h1 id="title"> To Do List</h1>
+      <div>
+        <h1 id="title">To Do List</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="input">
+            <label id="nameLabel" for="nameField"
+              ><p class="tag">Name:</p></label
+            >
+            <input id="nameField" type="text" placeholder="" />
+            <button id="addToDo">Add</button>
+            <label id="dateLabel" for="dateField"
+              ><p class="tag">Date:</p></label
+            >
+            <input id="dateField" type="date" placeholder="" />
+            <button id="editToDo">Edit</button>
+            <label id="changeLabel" for="dateField"
+              ><p class="tag">element to remove/edit:</p></label
+            >
+            <input id="changeField" type="numbers" placeholder="" />
+            <button id="removeToDo">Remove</button>
+          </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="input">
-                    <label id="nameLabel" for="nameField"><p class="tag">Name:</p></label>
-                    <input id="nameField" type="text" placeholder=""> <Button id="addToDo">Add</Button>
-                    <label id="dateLabel" for="dateField"><p class="tag">Date:</p></label>
-                    <input id="dateField" type="date" placeholder=""> <Button id="editToDo">Edit</Button>
-                    <label id="changeLabel" for="dateField"><p class="tag">element to remove/edit:</p></label>
-                    <input id="changeField" type="numbers" placeholder="">  <Button id="removeToDo">Remove</Button>
-                </div>
-            </div>
-         
-            <div class="col">
-                <div class="toDos" id="toDoContainer">
 
-                </div> 
-                <Button id="sortToDo">Sort</Button>
-            </div> 
+        <div class="col">
+          <div class="toDos" id="toDoContainer"></div>
+          <button id="sortToDo">Sort</button>
         </div>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
